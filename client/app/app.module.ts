@@ -4,12 +4,14 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CatService } from './services/cat.service';
+import { DogService } from './services/dog.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
 import { CatsComponent } from './cats/cats.component';
+import { DogsComponent } from './dogs/dogs.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +19,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -26,6 +29,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     CatsComponent,
+    DogsComponent,
     AboutComponent,
     RegisterComponent,
     LoginComponent,
@@ -49,6 +53,7 @@ export function tokenGetter() {
     AuthGuardLogin,
     AuthGuardAdmin,
     CatService,
+    DogService,
     UserService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

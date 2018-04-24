@@ -2,7 +2,9 @@ import * as express from 'express';
 
 import CatController from './controllers/CatController';
 import UserController from './controllers/UserController';
+import DogController from './controllers/DogController';
 // import cat from './models/cat';
+// import dog from './models/dog';
 // import user from './models/user';
 
 export default function routes(app) {
@@ -10,6 +12,7 @@ export default function routes(app) {
   const router = express.Router();
 
   const cat = new CatController();
+  const dog = new DogController();
   const user = new UserController();
 
   // cats
@@ -19,6 +22,14 @@ export default function routes(app) {
   router.route('/cat/:id').get(cat.get);
   router.route('/cat/:id').put(cat.update);
   router.route('/cat/:id').delete(cat.delete);
+
+  // dogs
+  router.route('/dogs').get(dog.getAll);
+  router.route('/dogs/count').get(dog.count);
+  router.route('/dog').post(dog.insert);
+  router.route('/dog/:id').get(dog.get);
+  router.route('/dog/:id').put(dog.update);
+  router.route('/dog/:id').delete(dog.delete);
 
   // users
   router.route('/login').post(user.login);
